@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Southside WL Rank-Up</title>
+<link rel="stylesheet" href="rankup.css">
+</head>
+<body>
+<div id="rankUpBanner">
+    <div class="banner-bg"></div>
+    <div class="banner-content">
+        <div class="banner-text">🌟 SOUTHISDE WL 🌟</div>
+        <div class="rank-info"><span id="badge">🟤</span> <span id="rank">Rookie</span></div>
+    </div>
+</div>
+
+<script>
+window.addEventListener('message', function(event) {
+    if(event.data.action == "rankUp") {
+        document.getElementById('rank').innerText = event.data.rank;
+        document.getElementById('badge').innerText = event.data.badge;
+
+        let banner = document.getElementById('rankUpBanner');
+        banner.classList.add('show');
+        setTimeout(() => { banner.classList.remove('show'); }, 3000);
+    }
+});
+</script>
+</body>
+</html>
